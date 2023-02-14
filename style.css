@@ -1,8 +1,35 @@
 #screen {
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   width: 100%;
   position: relative;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1;
+  background-color: aqua;
 }
 #game_background {
+  width: 100%;
+  background-image: url("Clicker Game/Assets/Crashsite Defender background.jpg");
+}
+#game_elements {
+  z-index: 1;
+  width: 100%;
+}
+#game_elements img {
+  position: absolute;
+}
+#game {
+  width: 100%;
+}
+#start {
+  z-index: 4;
+  width: 100%;
+}
+#game_over {
+  z-index: 3;
+  width: 100%;
+}
+#level_complete {
+  z-index: 2;
   width: 100%;
 }
