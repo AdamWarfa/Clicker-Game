@@ -11,15 +11,22 @@
     <main id="screen">
       <div id="game">
         <div id="game_background"></div>
-        <div id="game_elements"></div>
-        <img src="Clicker Game/Assets/enemy_25.png" alt="" />
-        <img src="Clicker Game/Assets/enemy_50.png" alt="" />
-        <img src="Clicker Game/Assets/enemy_100.png" alt="" />
-        <div id="game_foreground"></div>
-        <div id=" game_ui">
-          <div id="score_board"></div>
-          <div id="life_board"></div>
-          <div id="time_board"></div>
+        <div id="game_elements">
+          <div id="enemy25Container" class="flyleft">
+            <img src="Clicker Game/Assets/enemy_25.png" id="enemy25" alt="" />
+          </div>
+          <div id="enemy50Container" class="falling">
+            <img src="Clicker Game/Assets/enemy_50.png" id="enemy50" alt="" />
+          </div>
+          <div id="enemy100Container" class="flyright">
+            <img src="Clicker Game/Assets/enemy_100.png" id="enemy100" alt="" />
+          </div>
+          <div id="game_foreground"></div>
+          <div id=" game_ui">
+            <div id="score_board"></div>
+            <div id="life_board"></div>
+            <div id="time_board"></div>
+          </div>
         </div>
       </div>
       <div id="start"></div>

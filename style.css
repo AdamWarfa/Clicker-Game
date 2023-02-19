@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow: hidden;
 }
 #screen {
   aspect-ratio: 16 / 10;
@@ -16,16 +17,42 @@ body {
   aspect-ratio: 16/9;
   position: relative;
 }
-#game_elements {
-  z-index: 1;
-  width: 100%;
-}
-#game_elements img {
-  position: absolute;
-}
 #game {
   width: 100%;
 }
+#game_elements {
+  z-index: 1;
+}
+#game_elements img {
+}
+#enemy25Container {
+  position: absolute;
+  width: 13%;
+  top: 30%;
+  right: 10%;
+}
+#enemy50Container {
+  position: absolute;
+  width: 13%;
+  top: 0%;
+  right: 40%;
+}
+#enemy100Container {
+  position: absolute;
+  width: 13%;
+  top: 55%;
+  right: 90%;
+}
+#enemy25 {
+  width: 100%;
+}
+#enemy50 {
+  width: 100%;
+}
+#enemy100 {
+  width: 100%;
+}
+
 #start {
   z-index: 4;
   width: 100%;
@@ -37,4 +64,57 @@ body {
 #level_complete {
   z-index: 2;
   width: 100%;
+}
+.falling {
+  animation-name: falling;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes falling {
+  0% {
+    scale: 50%;
+    transform: translate(0, -300%);
+  }
+  50% {
+    scale: 100%;
+    transform: translate(0, 250%);
+  }
+  100% {
+    scale: 500%;
+  }
+}
+.flyleft {
+  animation-name: flyleft;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes flyleft {
+  0% {
+    transform: translate(500%, 0);
+  }
+  50% {
+  }
+  100% {
+    transform: translate(-700%, 0);
+  }
+}
+.flyright {
+  animation-name: flyright;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes flyright {
+  0% {
+    transform: translate(-500%, 0);
+  }
+  50% {
+  }
+  100% {
+    transform: translate(700%, 0);
+  }
 }
