@@ -8,8 +8,8 @@ function start() {
   document.querySelector("#enemy25Container").addEventListener("mousedown", fewPoints);
   document.querySelector("#enemy100Container").addEventListener("mousedown", morePoints);
   document.querySelector("#enemy50Container").addEventListener("mousedown", manyPoints);
-  document.querySelector("#planet1Container").addEventListener("mousedown", planetBig);
-  document.querySelector("#planet2Container").addEventListener("mousedown", planetSmall);
+  document.querySelector("#planet1Container").addEventListener("mouseover", planetBig);
+  document.querySelector("#planet2Container").addEventListener("mouseover", planetSmall);
 }
 //
 function fewPoints() {
@@ -59,7 +59,7 @@ function displayPoints() {
   document.querySelector("#point-counter").textContent = points;
 }
 function planetBig() {
-  document.querySelector("#planet1Container").removeEventListener("mousedown", planetBig);
+  document.querySelector("#planet1Container").removeEventListener("mouseover", planetBig);
   document.querySelector("#planet1Container").classList.add("paused");
   document.querySelector("#planet1").classList.add("zoom_in");
   document.querySelector("#planet1Container").addEventListener("animationend", planetReset);
@@ -67,7 +67,7 @@ function planetBig() {
 }
 
 function planetSmall() {
-  document.querySelector("#planet2Container").removeEventListener("mousedown", planetSmall);
+  document.querySelector("#planet2Container").removeEventListener("mouseover", planetSmall);
   document.querySelector("#planet2Container").classList.add("paused");
   document.querySelector("#planet2").classList.add("zoom_in");
   document.querySelector("#planet2Container").addEventListener("animationend", planetReset);
@@ -126,8 +126,8 @@ function enemyReset() {
 
 function planetReset() {
   //fjern event listener for begge planeter
-  document.querySelector("#planet1Container").removeEventListener("animationend", enemyReset);
-  document.querySelector("#planet2Container").removeEventListener("animationend", enemyReset);
+  document.querySelector("#planet1Container").removeEventListener("animationend", planetReset);
+  document.querySelector("#planet2Container").removeEventListener("animationend", planetReset);
 
   // fjern dødsanimationerne
   document.querySelector("#planet1Container").classList.remove("paused");
@@ -146,6 +146,6 @@ function planetReset() {
   document.querySelector("#planet2Container").classList.add("driftleft");
 
   // Gør planets clickable igen, som vi gjorde i startfunktionen
-  document.querySelector("#planet1Container").addEventListener("mousedown", planetBig);
-  document.querySelector("#planet2Container").addEventListener("mousedown", planetSmall);
+  document.querySelector("#planet1Container").addEventListener("mouseover", planetBig);
+  document.querySelector("#planet2Container").addEventListener("mouseover", planetSmall);
 }
