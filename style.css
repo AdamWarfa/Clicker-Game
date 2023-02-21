@@ -10,7 +10,7 @@ body {
   grid-template-columns: 1;
   grid-template-rows: 1;
   overflow: hidden;
-  cursor: url(Clicker\ Game/Assets/crosshair.png) 60 60, auto;
+  cursor: url(Clicker\ Game/Assets/crosshairGreen.png) 40 40, auto;
 }
 #game_background {
   width: 100%;
@@ -258,5 +258,19 @@ body {
   100% {
     transform: translate(100%, 0) scale(15) rotate(90deg);
     opacity: 0;
+  }
+}
+.dead {
+  animation-name: dead;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@keyframes dead {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 100vh);
   }
 }
