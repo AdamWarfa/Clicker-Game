@@ -63,6 +63,20 @@ body {
   z-index: 2;
   width: 100%;
 }
+
+#life_board {
+  display: grid;
+  grid-template-columns: 100% 100% 100% 100% 100%;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  margin-top: 3em;
+  margin-left: 83vw;
+  width: 3%;
+}
+#life_board img {
+  width: 100%;
+}
 .falling {
   animation-name: falling;
   animation-duration: 2s;
