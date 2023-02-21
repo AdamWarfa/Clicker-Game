@@ -10,6 +10,7 @@ body {
   grid-template-columns: 1;
   grid-template-rows: 1;
   overflow: hidden;
+  cursor: url(https://cdn.iconscout.com/icon/free/png-256/debug-438924.png), auto;
 }
 #game_background {
   width: 100%;
