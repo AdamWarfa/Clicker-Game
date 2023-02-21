@@ -23,8 +23,6 @@ body {
 #game_elements {
   z-index: 1;
 }
-#game_elements img {
-}
 #enemy25Container {
   position: absolute;
   width: 13%;
@@ -67,23 +65,41 @@ body {
 }
 .falling {
   animation-name: falling;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 @keyframes falling {
   0% {
-    scale: 50%;
-    transform: translate(0, -300%);
+    transform: translate(0, -50vh);
   }
-  50% {
-    scale: 100%;
-    transform: translate(0, 250%);
+  65% {
+    transform: translate(0, 100vh);
   }
   100% {
-    scale: 500%;
+    transform: translate(0, 40vh);
   }
 }
+
+.close {
+  animation-name: close;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes close {
+  0% {
+    transform: scale(50%);
+  }
+  65% {
+    transform: scale(50%);
+  }
+  100% {
+    transform: scale(500%);
+  }
+}
+
 .flyleft {
   animation-name: flyleft;
   animation-duration: 3s;
@@ -116,5 +132,25 @@ body {
   }
   100% {
     transform: translate(700%, 0);
+  }
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.zoom_out {
+  animation-name: zoom_out;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom_out {
+  0% {
+    transform: scale(100%);
+  }
+  100% {
+    transform: scale(0);
   }
 }
