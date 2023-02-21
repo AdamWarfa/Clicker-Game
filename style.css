@@ -125,7 +125,7 @@ body {
 }
 .falling {
   animation-name: falling;
-  animation-duration: 2s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -133,7 +133,10 @@ body {
   0% {
     transform: translate(0, -50vh);
   }
-  65% {
+  90% {
+    transform: translate(0, -50vh);
+  }
+  96% {
     transform: translate(0, 100vh);
   }
   100% {
@@ -143,7 +146,7 @@ body {
 
 .close {
   animation-name: close;
-  animation-duration: 2s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -152,7 +155,10 @@ body {
   0% {
     transform: scale(50%);
   }
-  65% {
+  90% {
+    transform: scale(50%);
+  }
+  96% {
     transform: scale(50%);
   }
   100% {
@@ -262,7 +268,7 @@ body {
 }
 .dead {
   animation-name: dead;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
