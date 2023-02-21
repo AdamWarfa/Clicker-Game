@@ -89,7 +89,7 @@ body {
   z-index: 2;
   position: absolute;
   top: 0;
-  margin-top: 3em;
+  margin-top: 4vh;
   margin-left: 83vw;
   width: 3%;
 }
@@ -105,7 +105,7 @@ body {
   z-index: 2;
   position: absolute;
   top: 0;
-  margin-top: 1vh;
+  margin-top: 4vh;
   margin-left: 3vw;
   width: 5%;
 }
