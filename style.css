@@ -29,32 +29,36 @@ body {
   position: absolute;
   width: 13%;
   top: 30%;
-  right: 10%;
+  right: -20vw;
+  z-index: 2;
 }
 #enemy50Container {
   position: absolute;
   width: 13%;
-  top: 0%;
+  top: -20vh;
   right: 40%;
-  z-index: 2;
+  z-index: 4;
 }
 #enemy100Container {
   position: absolute;
   width: 13%;
   top: 55%;
-  right: 90%;
+  left: -20vw;
+  z-index: 2;
 }
 #planet1Container {
   position: absolute;
   width: 20%;
   top: 15%;
   right: 10%;
+  z-index: 3;
 }
 #planet2Container {
   position: absolute;
   width: 10%;
   top: 45%;
   right: 10%;
+  z-index: 3;
 }
 #enemy25 {
   width: 100%;
@@ -175,15 +179,15 @@ body {
 
 @keyframes flyleft {
   0% {
-    transform: translate(500%, 0);
+    transform: translate(0, 0);
   }
   100% {
-    transform: translate(-900%, 0);
+    transform: translate(-150vw, 0);
   }
 }
 .flyright {
   animation-name: flyright;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }

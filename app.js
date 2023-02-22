@@ -122,19 +122,15 @@ function enemyReset() {
 
   //reset initial animations
   EnemyWeak.classList.remove("flyleft");
-  EnemyWeak.classList.offsetWidth;
-  EnemyWeak.classList.add("flyleft");
+  setTimeout(() => EnemyWeak.classList.add("flyleft"), 0);
 
   EnemyStrong.classList.remove("falling");
-  EnemyStrong.classList.offsetWidth;
-  EnemyStrong.classList.add("falling");
+  setTimeout(() => EnemyStrong.classList.add("falling"), 0);
   EnemyStrongSprite.classList.remove("close");
-  EnemyStrongSprite.classList.offsetWidth;
-  EnemyStrongSprite.classList.add("close");
+  setTimeout(() => EnemyStrongSprite.classList.add("close"), 0);
 
   EnemyMedium.classList.remove("flyright");
-  EnemyMedium.classList.offsetWidth;
-  EnemyMedium.classList.add("flyright");
+  setTimeout(() => EnemyMedium.classList.add("flyright"), 0);
 
   // Gør enemies clickable igen, som vi gjorde i startfunktionen
   EnemyWeak.addEventListener("mousedown", fewPoints);
@@ -156,12 +152,10 @@ function planetReset() {
 
   //reset initial animations
   planetHigh.classList.remove("driftright");
-  planetHigh.classList.offsetWidth;
-  planetHigh.classList.add("driftright");
+  setTimeout(() => planetHigh.classList.add("driftright"), 0);
 
   planetLow.classList.remove("driftleft");
-  planetLow.classList.offsetWidth;
-  planetLow.classList.add("driftleft");
+  setTimeout(() => planetLow.classList.add("driftleft"), 0);
 
   // Gør planets clickable igen, som vi gjorde i startfunktionen
   planetHigh.addEventListener("mouseover", planetBig);
