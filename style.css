@@ -117,7 +117,7 @@ body {
 #score_board h2 {
   color: #21cc23;
   font-size: 3vw;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Press Start 2P", cursive;
   filter: drop-shadow(2px 10px 100px #e6ff00);
   position: absolute;
   top: -80%;
