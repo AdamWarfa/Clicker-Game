@@ -187,7 +187,7 @@ body {
   background-size: cover;
   aspect-ratio: 16/9;
   position: absolute;
-  z-index: 20;
+  z-index: 19;
 }
 #rules_text {
   font-size: 4vw;
@@ -209,6 +209,13 @@ body {
   border: 4px;
   border-style: solid;
   border-color: #ff72b4;
+}
+
+#rules_sprites {
+  width: 100vw;
+  position: absolute;
+  left: -9vw;
+  top: -3vw;
 }
 
 #rules_button {

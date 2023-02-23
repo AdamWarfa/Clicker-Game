@@ -205,6 +205,14 @@ function planetSmallReset() {
   planetLow.addEventListener("mouseover", planetSmall);
 }
 
+function startScreen() {
+  document.querySelector("#start").classList.add("hidden");
+}
+
+function rules() {
+  document.querySelector("#rules").classList.add("hidden");
+}
+
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#game_over_score").textContent = `Score: ${points}`;
