@@ -176,10 +176,10 @@ body {
   padding: 2vw 4vw;
   text-decoration: none;
   text-shadow: 0px 1px 0px #914064;
+  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 #start_button:hover {
   background-color: #914064;
-  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 
 #rules {
@@ -234,10 +234,10 @@ body {
   padding: 2vw 4vw;
   text-decoration: none;
   text-shadow: 0px 1px 0px #914064;
+  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 #rules_button:hover {
   background-color: #914064;
-  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 
 #game_over {
@@ -283,10 +283,10 @@ body {
   padding: 2vw 4vw;
   text-decoration: none;
   text-shadow: 0px 1px 0px #993928;
+  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 #game_over_button:hover {
   background-color: #9b3e2d;
-  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 
 #level_complete {
@@ -351,10 +351,10 @@ body {
   padding: 2vw 4vw;
   text-decoration: none;
   text-shadow: 0px 1px 0px #127214;
+  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 #level_complete_button:hover {
   background-color: #127214;
-  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 
 .falling {
