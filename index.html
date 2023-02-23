@@ -49,14 +49,18 @@
       </div>
       <div id="start"></div>
       <div id="game_over" class="hidden">
-        <h2 id="game_over_text">GAME OVER</h2>
         <div id="game_over_grid">
-          <img src="Clicker Game/Assets/enemy_100.png" alt="" />
-          <img src="Clicker Game/Assets/enemy_50.png" alt="" />
+          <h2 id="game_over_text">GAME OVER</h2>
+          <p id="game_over_score"></p>
+          <a href="#" id="game_over_button" onclick="window.location.reload()">RETRY</a>
         </div>
       </div>
       <div id="level_complete" class="hidden">
-        <h2 id="level_complete_text">LEVEL COMPLETE!</h2>
+        <div id="level_complete_grid">
+          <h2 id="level_complete_text">LEVEL COMPLETE!</h2>
+          <p id="level_complete_score"></p>
+          <a href="#" id="level_complete_button" onclick="window.location.reload()">PLAY AGAIN</a>
+        </div>
       </div>
     </main>
     <script src="app.js"></script>

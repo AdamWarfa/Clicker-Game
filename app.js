@@ -2,6 +2,7 @@
 window.addEventListener("load", start);
 //
 let points = 0;
+let score = points.toString();
 let lives = 5;
 //Variabeldeklaration
 let EnemyWeak = document.querySelector("#enemy25Container");
@@ -14,6 +15,8 @@ let planetHigh = document.querySelector("#planet1Container");
 let planetLow = document.querySelector("#planet2Container");
 let planetHighSprite = document.querySelector("#planet1");
 let planetLowSprite = document.querySelector("#planet2");
+let buttonLose = document.querySelector("game_over_button");
+let buttonWin = document.querySelector("level_complete_button");
 
 //
 function start() {
@@ -204,8 +207,10 @@ function planetSmallReset() {
 
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
+  document.querySelector("#game_over_score").textContent = `Score: ${points}`;
 }
 
 function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
+  document.querySelector("#level_complete_score").textContent = `Score: ${points}`;
 }

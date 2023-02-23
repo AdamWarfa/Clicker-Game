@@ -131,38 +131,120 @@ body {
   visibility: hidden;
 }
 #game_over {
-  background: rgb(125, 0, 0);
-  background: linear-gradient(0deg, rgba(125, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 100%);
+  width: 100%;
+  background-image: url("Clicker Game/Assets/Crashsite\ Defender\ background\ dark\ .jpg");
+  background-size: cover;
+  aspect-ratio: 16/9;
   position: absolute;
   z-index: 20;
-  width: 100vw;
-  aspect-ratio: 16 / 9;
 }
 #game_over_text {
   font-size: 5vw;
   text-align: center;
   font-family: "Press Start 2P", cursive;
+  color: tomato;
+  position: absolute;
+  top: 3vw;
+  left: 1vw;
 }
 #game_over_grid {
-  display: grid;
-  grid-template-columns: 100% 100%;
+  background-color: #070012;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  padding: 20vw 20vw;
+  border: 4px;
+  border-style: solid;
+  border-color: tomato;
 }
+#game_over_button {
+  position: absolute;
+  top: 25vw;
+  left: 9vw;
+  background-color: #ff6347;
+  border-radius: 4vw;
+  border: 1px solid #ff6347;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 3vw;
+  padding: 2vw 4vw;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #993928;
+}
+#game_over_button:hover {
+  background-color: #9b3e2d;
+}
+
 #level_complete {
-  background-color: #21cc23;
+  width: 100%;
+  background-image: url("Clicker Game/Assets/Crashsite\ Defender\ background\ dark\ .jpg");
+  background-size: cover;
+  aspect-ratio: 16/9;
   position: absolute;
   z-index: 20;
-  width: 100vw;
-  aspect-ratio: 16 / 9;
 }
 #level_complete_text {
-  font-size: 5vw;
+  font-size: 4vw;
   text-align: center;
   font-family: "Press Start 2P", cursive;
+  color: #21cc23;
+  position: absolute;
+  top: 4vw;
+  left: 1vw;
+}
+#game_over_score {
+  position: absolute;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  font-size: 3vw;
+  color: #ffffff;
+  top: 16vw;
+  left: 4vw;
+}
+#level_complete_score {
+  position: absolute;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  font-size: 3vw;
+  color: #ffffff;
+  top: 16vw;
+  left: 4vw;
 }
 #level_complete_grid {
-  display: grid;
-  grid-template-columns: 100% 100%;
+  background-color: #070012;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  padding: 20vw 20vw;
+  border: 4px;
+  border-style: solid;
+  border-color: #21cc23;
 }
+
+#level_complete_button {
+  position: absolute;
+  top: 25vw;
+  left: 6vw;
+  background-color: #21cc23;
+  border-radius: 4vw;
+  border: 1px solid #21cc23;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 2vw;
+  padding: 2vw 4vw;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #127214;
+}
+#level_complete_button:hover {
+  background-color: #127214;
+}
+
 .falling {
   animation-name: falling;
   animation-duration: 20s;
