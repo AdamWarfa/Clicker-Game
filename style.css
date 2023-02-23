@@ -130,6 +130,107 @@ body {
 .hidden {
   visibility: hidden;
 }
+
+#start {
+  width: 100%;
+  background-image: url("Clicker Game/Assets/Crashsite\ Defender\ background\ dark\ .jpg");
+  background-size: cover;
+  aspect-ratio: 16/9;
+  position: absolute;
+  z-index: 20;
+}
+#start_text {
+  font-size: 4vw;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  color: #ff72b4;
+  position: absolute;
+  top: 5vw;
+  left: 1vw;
+}
+
+#start_box {
+  background-color: #070012;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  padding: 20vw 20vw;
+  border: 4px;
+  border-style: solid;
+  border-color: #ff72b4;
+}
+
+#start_button {
+  position: absolute;
+  top: 26vw;
+  left: 12vw;
+  background-color: #ff72b4;
+  border-radius: 4vw;
+  border: 1px solid #ff72b4;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 2vw;
+  padding: 2vw 4vw;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #914064;
+}
+#start_button:hover {
+  background-color: #914064;
+}
+
+#rules {
+  width: 100%;
+  background-image: url("Clicker Game/Assets/Crashsite\ Defender\ background\ dark\ .jpg");
+  background-size: cover;
+  aspect-ratio: 16/9;
+  position: absolute;
+  z-index: 20;
+}
+#rules_text {
+  font-size: 4vw;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  color: #ff72b4;
+  position: absolute;
+  top: 2vw;
+  left: 30vw;
+}
+
+#rules_box {
+  background-color: #070012;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  padding: 20vw 40vw;
+  border: 4px;
+  border-style: solid;
+  border-color: #ff72b4;
+}
+
+#rules_button {
+  position: absolute;
+  top: 31vw;
+  left: 31vw;
+  background-color: #ff72b4;
+  border-radius: 4vw;
+  border: 1px solid #ff72b4;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 2vw;
+  padding: 2vw 4vw;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #914064;
+}
+#rules_button:hover {
+  background-color: #914064;
+}
+
 #game_over {
   width: 100%;
   background-image: url("Clicker Game/Assets/Crashsite\ Defender\ background\ dark\ .jpg");
@@ -147,7 +248,7 @@ body {
   top: 3vw;
   left: 1vw;
 }
-#game_over_grid {
+#game_over_box {
   background-color: #070012;
   position: absolute;
   top: 50%;
@@ -213,7 +314,7 @@ body {
   top: 16vw;
   left: 4vw;
 }
-#level_complete_grid {
+#level_complete_box {
   background-color: #070012;
   position: absolute;
   top: 50%;
