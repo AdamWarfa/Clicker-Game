@@ -59,18 +59,30 @@ function manyPoints() {
 
 function incrementPointsFew() {
   points = points + 25;
-  console.log(points);
-  displayPoints();
+  if (points < 500) {
+    console.log(points);
+    displayPoints();
+  } else {
+    levelComplete();
+  }
 }
 function incrementPointsMore() {
   points = points + 50;
-  console.log(points);
-  displayPoints();
+  if (points < 500) {
+    console.log(points);
+    displayPoints();
+  } else {
+    levelComplete();
+  }
 }
 function incrementPointsMany() {
   points = points + 100;
-  console.log(points);
-  displayPoints();
+  if (points < 500) {
+    console.log(points);
+    displayPoints();
+  } else {
+    levelComplete();
+  }
 }
 function displayPoints() {
   console.log("displayPoints");
@@ -93,8 +105,8 @@ function planetSmall() {
 }
 
 function decrementLives() {
-  if (lives > 1) {
-    lives--;
+  lives--;
+  if (lives > 0) {
     points = points - 100;
     displayDecrementLives();
   } else {
@@ -192,4 +204,8 @@ function planetSmallReset() {
 
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
+}
+
+function levelComplete() {
+  document.querySelector("#level_complete").classList.remove("hidden");
 }
