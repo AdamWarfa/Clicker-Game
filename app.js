@@ -141,7 +141,7 @@ function enemyWeakReset() {
 
 function enemyMediumReset() {
   //fjern event listener for alle 3 enemies
-  EnemyMedium.removeEventListener("animationend", enemyStrongReset);
+  EnemyMedium.removeEventListener("animationend", enemyMediumReset);
 
   // fjern dødsanimationerne
   EnemyMedium.classList.remove("paused");
@@ -157,7 +157,7 @@ function enemyMediumReset() {
 
 function enemyStrongReset() {
   //fjern event listener for alle 3 enemies
-  EnemyStrong.removeEventListener("animationend", enemyMediumReset);
+  EnemyStrong.removeEventListener("animationend", enemyStrongReset);
 
   // fjern dødsanimationerne
   EnemyStrong.classList.remove("paused");
