@@ -179,6 +179,7 @@ body {
 }
 #start_button:hover {
   background-color: #914064;
+  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 
 #rules {
