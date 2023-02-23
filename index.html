@@ -24,10 +24,10 @@
           <div id="enemy100Container">
             <img src="Clicker Game/Assets/enemy_100.png" id="enemy100" alt="" />
           </div>
-          <div id="planet1Container" class="driftright">
+          <div id="planet1Container">
             <img src="Clicker Game/Assets/vecteezy_planet-clipart-design-illustration_9342330_706.png" id="planet1" alt="" />
           </div>
-          <div id="planet2Container" class="driftleft">
+          <div id="planet2Container">
             <img src="Clicker Game/Assets/vecteezy_planet-clipart-design-illustration_9380774_71.png" id="planet2" class="" alt="" />
           </div>
           <div id="game_foreground"></div>
@@ -48,8 +48,16 @@
         </div>
       </div>
       <div id="start"></div>
-      <div id="game_over"></div>
-      <div id="level_complete"></div>
+      <div id="game_over" class="hidden">
+        <h2 id="game_over_text">GAME OVER</h2>
+        <div id="game_over_grid">
+          <img src="Clicker Game/Assets/enemy_100.png" alt="" />
+          <img src="Clicker Game/Assets/enemy_50.png" alt="" />
+        </div>
+      </div>
+      <div id="level_complete">
+        <h2 id="level_complete_text">LEVEL COMPLETE!</h2>
+      </div>
     </main>
     <script src="app.js"></script>
   </body>

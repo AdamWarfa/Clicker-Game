@@ -50,14 +50,14 @@ body {
   position: absolute;
   width: 20%;
   top: 15%;
-  right: 10%;
+  left: -20vw;
   z-index: 3;
 }
 #planet2Container {
   position: absolute;
   width: 10%;
   top: 45%;
-  right: 10%;
+  right: -20vw;
   z-index: 3;
 }
 #enemy25 {
@@ -127,6 +127,26 @@ body {
   top: -80%;
   left: 100%;
 }
+.hidden {
+  visibility: hidden;
+}
+#game_over {
+  background: rgb(125, 0, 0);
+  background: linear-gradient(0deg, rgba(125, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 100%);
+  position: absolute;
+  z-index: 20;
+  width: 100vw;
+  aspect-ratio: 16 / 9;
+}
+#game_over_text {
+  font-size: 5vw;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+}
+#game_over_grid {
+  display: grid;
+  grid-template-columns: 100% 100%;
+}
 .falling {
   animation-name: falling;
   animation-duration: 20s;
@@ -194,10 +214,10 @@ body {
 
 @keyframes flyright {
   0% {
-    transform: translate(-500%, 0);
+    transform: translate(0, 0);
   }
   100% {
-    transform: translate(900%, 0);
+    transform: translate(150vw, 0);
   }
 }
 
@@ -210,10 +230,10 @@ body {
 
 @keyframes driftleft {
   0% {
-    transform: translate(500%, 0);
+    transform: translate(0, 0);
   }
   100% {
-    transform: translate(-900%, 0);
+    transform: translate(-150vw, 0);
   }
 }
 .driftright {
@@ -225,10 +245,10 @@ body {
 
 @keyframes driftright {
   0% {
-    transform: translate(-500%, 0);
+    transform: translate(0, 0);
   }
   100% {
-    transform: translate(900%, 0);
+    transform: translate(150vw, 0);
   }
 }
 .paused {

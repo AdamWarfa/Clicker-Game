@@ -34,7 +34,7 @@ function fewPoints() {
   EnemyWeak.removeEventListener("mousedown", fewPoints);
   EnemyWeak.classList.add("paused");
   EnemyWeakSprite.classList.add("dead");
-  EnemyWeak.addEventListener("animationend", enemyReset);
+  EnemyWeak.addEventListener("animationend", enemyWeakReset);
 
   incrementPointsFew();
 }
@@ -43,7 +43,7 @@ function morePoints() {
   EnemyMedium.removeEventListener("mousedown", morePoints);
   EnemyMedium.classList.add("paused");
   EnemyMediumSprite.classList.add("dead");
-  EnemyMedium.addEventListener("animationend", enemyReset);
+  EnemyMedium.addEventListener("animationend", enemyMediumReset);
 
   incrementPointsMore();
 }
@@ -52,7 +52,7 @@ function manyPoints() {
   EnemyStrong.removeEventListener("mousedown", manyPoints);
   EnemyStrong.classList.add("paused");
   EnemyStrongSprite.classList.add("dead");
-  EnemyStrong.addEventListener("animationend", enemyReset);
+  EnemyStrong.addEventListener("animationend", enemyStrongReset);
 
   incrementPointsMany();
 }
@@ -79,23 +79,27 @@ function displayPoints() {
 function planetBig() {
   planetHigh.removeEventListener("mouseover", planetBig);
   planetHigh.classList.add("paused");
-  planetHighSprite.classList.add("zoom_in");
-  planetHigh.addEventListener("animationend", planetReset);
+  planetHighSprite.classList.add("zoom_out");
+  planetHigh.addEventListener("animationend", planetBigReset);
   decrementLives();
 }
 
 function planetSmall() {
   planetLow.removeEventListener("mouseover", planetSmall);
   planetLow.classList.add("paused");
-  planetLowSprite.classList.add("zoom_in");
-  planetLow.addEventListener("animationend", planetReset);
+  planetLowSprite.classList.add("zoom_out");
+  planetLow.addEventListener("animationend", planetSmallReset);
   decrementLives();
 }
 
 function decrementLives() {
-  lives--;
-  points = points - 100;
-  displayDecrementLives();
+  if (lives > 1) {
+    lives--;
+    points = points - 100;
+    displayDecrementLives();
+  } else {
+    gameOver();
+  }
 }
 
 function displayDecrementLives() {
@@ -104,60 +108,88 @@ function displayDecrementLives() {
   document.querySelector(`#point-counter`).textContent = points;
 }
 
-function enemyReset() {
+function enemyWeakReset() {
   //fjern event listener for alle 3 enemies
-  EnemyWeak.removeEventListener("animationend", enemyReset);
-  EnemyStrong.removeEventListener("animationend", enemyReset);
-  EnemyMedium.removeEventListener("animationend", enemyReset);
+  EnemyWeak.removeEventListener("animationend", enemyWeakReset);
 
   // fjern dødsanimationerne
   EnemyWeak.classList.remove("paused");
   EnemyWeakSprite.classList.remove("dead");
 
-  EnemyStrong.classList.remove("paused");
-  EnemyStrongSprite.classList.remove("dead");
+  //reset initial animations
+  EnemyWeak.classList.remove("flyleft");
+  setTimeout(() => EnemyWeak.classList.add("flyleft"), 0);
 
+  // Gør enemies clickable igen, som vi gjorde i startfunktionen
+  EnemyWeak.addEventListener("mousedown", fewPoints);
+}
+
+function enemyMediumReset() {
+  //fjern event listener for alle 3 enemies
+  EnemyMedium.removeEventListener("animationend", enemyStrongReset);
+
+  // fjern dødsanimationerne
   EnemyMedium.classList.remove("paused");
   EnemyMediumSprite.classList.remove("dead");
 
   //reset initial animations
-  EnemyWeak.classList.remove("flyleft");
-  setTimeout(() => EnemyWeak.classList.add("flyleft"), 0);
+  EnemyMedium.classList.remove("flyright");
+  setTimeout(() => EnemyMedium.classList.add("flyright"), 0);
+
+  // Gør enemies clickable igen, som vi gjorde i startfunktionen
+  EnemyMedium.addEventListener("mousedown", morePoints);
+}
+
+function enemyStrongReset() {
+  //fjern event listener for alle 3 enemies
+  EnemyStrong.removeEventListener("animationend", enemyMediumReset);
+
+  // fjern dødsanimationerne
+  EnemyStrong.classList.remove("paused");
+  EnemyStrongSprite.classList.remove("dead");
+
+  //reset initial animations
 
   EnemyStrong.classList.remove("falling");
   setTimeout(() => EnemyStrong.classList.add("falling"), 0);
   EnemyStrongSprite.classList.remove("close");
   setTimeout(() => EnemyStrongSprite.classList.add("close"), 0);
 
-  EnemyMedium.classList.remove("flyright");
-  setTimeout(() => EnemyMedium.classList.add("flyright"), 0);
-
   // Gør enemies clickable igen, som vi gjorde i startfunktionen
-  EnemyWeak.addEventListener("mousedown", fewPoints);
-  EnemyMedium.addEventListener("mousedown", morePoints);
   EnemyStrong.addEventListener("mousedown", manyPoints);
 }
-
-function planetReset() {
+function planetBigReset() {
   //fjern event listener for begge planeter
-  planetHigh.removeEventListener("animationend", planetReset);
-  planetLow.removeEventListener("animationend", planetReset);
+  planetHigh.removeEventListener("animationend", planetBigReset);
 
   // fjern dødsanimationerne
   planetHigh.classList.remove("paused");
-  planetHighSprite.classList.remove("zoom_in");
-
-  planetLow.classList.remove("paused");
-  planetLowSprite.classList.remove("zoom_in");
+  planetHighSprite.classList.remove("zoom_out");
 
   //reset initial animations
   planetHigh.classList.remove("driftright");
   setTimeout(() => planetHigh.classList.add("driftright"), 0);
 
+  // Gør planets clickable igen, som vi gjorde i startfunktionen
+  planetHigh.addEventListener("mouseover", planetBig);
+}
+
+function planetSmallReset() {
+  //fjern event listener for begge planeter
+  planetLow.removeEventListener("animationend", planetSmallReset);
+
+  // fjern dødsanimationerne
+  planetLow.classList.remove("paused");
+  planetLowSprite.classList.remove("zoom_out");
+
+  //reset initial animations
   planetLow.classList.remove("driftleft");
   setTimeout(() => planetLow.classList.add("driftleft"), 0);
 
   // Gør planets clickable igen, som vi gjorde i startfunktionen
-  planetHigh.addEventListener("mouseover", planetBig);
   planetLow.addEventListener("mouseover", planetSmall);
+}
+
+function gameOver() {
+  document.querySelector("#game_over").classList.remove("hidden");
 }
