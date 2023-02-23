@@ -237,6 +237,7 @@ body {
 }
 #rules_button:hover {
   background-color: #914064;
+  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 
 #game_over {
@@ -285,6 +286,7 @@ body {
 }
 #game_over_button:hover {
   background-color: #9b3e2d;
+  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 
 #level_complete {
@@ -352,6 +354,7 @@ body {
 }
 #level_complete_button:hover {
   background-color: #127214;
+  cursor: url(Clicker\ Game/Assets/crosshairDark.png) 40 40, auto;
 }
 
 .falling {
