@@ -18,31 +18,52 @@ let planetLowSprite = document.querySelector("#planet2");
 let buttonLose = document.querySelector("game_over_button");
 let buttonWin = document.querySelector("level_complete_button");
 
-//
+//Startfunktion
 function start() {
+  startAnimations();
+
+  startPositions();
+
+  startListeners();
+}
+
+//Giv målene animationer
+function startAnimations() {
   EnemyWeak.classList.add("flyleft");
   EnemyStrong.classList.add("falling");
   EnemyMedium.classList.add("flyright");
   planetHigh.classList.add("driftright");
   planetLow.classList.add("driftleft");
+}
 
+//Giv målene startpositioner
+function startPositions() {
   EnemyWeak.classList.add("position1");
   EnemyMedium.classList.add("position2");
   planetHigh.classList.add("position3");
   planetLow.classList.add("position4");
+}
 
+//eventListeners
+function startListeners() {
+  //Når man clicker og hover over mål
   EnemyWeak.addEventListener("mousedown", fewPoints);
   EnemyMedium.addEventListener("mousedown", morePoints);
   EnemyStrong.addEventListener("mousedown", manyPoints);
   planetHigh.addEventListener("mouseover", planetBig);
   planetLow.addEventListener("mouseover", planetSmall);
 
+  //når animationer skal genstartes
   EnemyWeak.addEventListener("animationiteration", enemyWeakReset);
   EnemyMedium.addEventListener("animationiteration", enemyMediumReset);
   planetHigh.addEventListener("animationiteration", planetBigReset);
   planetLow.addEventListener("animationiteration", planetSmallReset);
+
+  //Game Over hvis man ikke nårat trykke på det sjældne rumskib
+  EnemyStrong.addEventListener("animationiteration", gameOver);
 }
-//
+
+// Når man trykker på det langsomme rumskib
 function fewPoints() {
   EnemyWeak.removeEventListener("mousedown", fewPoints);
   EnemyWeak.classList.add("paused");
@@ -52,6 +73,7 @@ function fewPoints() {
   incrementPointsFew();
 }
 
+// Når man trykker på det hurtige rumskib
 function morePoints() {
   EnemyMedium.removeEventListener("mousedown", morePoints);
   EnemyMedium.classList.add("paused");
@@ -61,6 +83,7 @@ function morePoints() {
   incrementPointsMore();
 }
 
+//Når man trykker på det sjældne rumskib
 function manyPoints() {
   EnemyStrong.removeEventListener("mousedown", manyPoints);
   EnemyStrong.classList.add("paused");
@@ -70,6 +93,7 @@ function manyPoints() {
   incrementPointsMany();
 }
 
+//Point for det langsomme rumskib
 function incrementPointsFew() {
   points = points + 25;
   if (points < 500) {
@@ -79,6 +103,8 @@ function incrementPointsFew() {
     levelComplete();
   }
 }
+
+//Point for det hurtige rumskib
 function incrementPointsMore() {
   points = points + 50;
   if (points < 500) {
@@ -88,6 +114,8 @@ function incrementPointsMore() {
     levelComplete();
   }
 }
+
+//Point for det sjældne rumskib
 function incrementPointsMany() {
   points = points + 100;
   if (points < 500) {
@@ -97,10 +125,14 @@ function incrementPointsMany() {
     levelComplete();
   }
 }
+
+//Vis point grafisk
 function displayPoints() {
   console.log("displayPoints");
   document.querySelector("#point-counter").textContent = points;
 }
+
+//Når man trykker på den store planet
 function planetBig() {
   planetHigh.removeEventListener("mouseover", planetBig);
   planetHigh.classList.add("paused");
@@ -109,6 +141,7 @@ function planetBig() {
   decrementLives();
 }
 
+//Når man trykker på den lille planet
 function planetSmall() {
   planetLow.removeEventListener("mouseover", planetSmall);
   planetLow.classList.add("paused");
@@ -117,6 +150,7 @@ function planetSmall() {
   decrementLives();
 }
 
+//Mist Liv og point
 function decrementLives() {
   lives--;
   if (lives > 0) {
@@ -127,12 +161,14 @@ function decrementLives() {
   }
 }
 
+//Vis liv grafisk
 function displayDecrementLives() {
   document.querySelector(`#battery${lives + 1}`).classList.remove("active-battery");
   document.querySelector(`#battery${lives + 1}`).classList.add("broken-battery");
   document.querySelector(`#point-counter`).textContent = points;
 }
 
+//Genstart langsomme rumskib
 function enemyWeakReset() {
   //fjern event listener for alle 3 enemies
   EnemyWeak.removeEventListener("animationend", enemyWeakReset);
@@ -145,6 +181,7 @@ function enemyWeakReset() {
   EnemyWeak.classList.remove("flyleft");
   setTimeout(() => EnemyWeak.classList.add("flyleft"), 0);
 
+  //Randomize top positioner
   let pos = Math.floor(Math.random() * 6 + 1);
   EnemyWeak.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
   EnemyWeak.classList.add(`position${pos}`);
@@ -153,6 +190,7 @@ function enemyWeakReset() {
   EnemyWeak.addEventListener("mousedown", fewPoints);
 }
 
+//Genstart hurtige rumskib
 function enemyMediumReset() {
   //fjern event listener for alle 3 enemies
   EnemyMedium.removeEventListener("animationend", enemyMediumReset);
@@ -165,6 +203,7 @@ function enemyMediumReset() {
   EnemyMedium.classList.remove("flyright");
   setTimeout(() => EnemyMedium.classList.add("flyright"), 0);
 
+  //Randomize top positioner
   let pos = Math.floor(Math.random() * 6 + 1);
   EnemyMedium.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
   EnemyMedium.classList.add(`position${pos}`);
@@ -173,6 +212,7 @@ function enemyMediumReset() {
   EnemyMedium.addEventListener("mousedown", morePoints);
 }
 
+//Genstart sjældne rumskib
 function enemyStrongReset() {
   //fjern event listener for alle 3 enemies
   EnemyStrong.removeEventListener("animationend", enemyStrongReset);
@@ -182,7 +222,6 @@ function enemyStrongReset() {
   EnemyStrongSprite.classList.remove("dead");
 
   //reset initial animations
-
   EnemyStrong.classList.remove("falling");
   setTimeout(() => EnemyStrong.classList.add("falling"), 0);
   EnemyStrongSprite.classList.remove("close");
@@ -203,6 +242,7 @@ function planetBigReset() {
   planetHigh.classList.remove("driftright");
   setTimeout(() => planetHigh.classList.add("driftright"), 0);
 
+  //Randomize top positioner
   let pos = Math.floor(Math.random() * 6 + 1);
   planetHigh.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
   planetHigh.classList.add(`position${pos}`);
@@ -223,6 +263,7 @@ function planetSmallReset() {
   planetLow.classList.remove("driftleft");
   setTimeout(() => planetLow.classList.add("driftleft"), 0);
 
+  //Randomize top positioner
   let pos = Math.floor(Math.random() * 6 + 1);
   planetLow.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
   planetLow.classList.add(`position${pos}`);
