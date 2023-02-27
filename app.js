@@ -26,11 +26,21 @@ function start() {
   planetHigh.classList.add("driftright");
   planetLow.classList.add("driftleft");
 
+  EnemyWeak.classList.add("position1");
+  EnemyMedium.classList.add("position2");
+  planetHigh.classList.add("position3");
+  planetLow.classList.add("position4");
+
   EnemyWeak.addEventListener("mousedown", fewPoints);
   EnemyMedium.addEventListener("mousedown", morePoints);
   EnemyStrong.addEventListener("mousedown", manyPoints);
   planetHigh.addEventListener("mouseover", planetBig);
   planetLow.addEventListener("mouseover", planetSmall);
+
+  EnemyWeak.addEventListener("animationiteration", enemyWeakReset);
+  EnemyMedium.addEventListener("animationiteration", enemyMediumReset);
+  planetHigh.addEventListener("animationiteration", planetBigReset);
+  planetLow.addEventListener("animationiteration", planetSmallReset);
 }
 //
 function fewPoints() {
@@ -135,6 +145,10 @@ function enemyWeakReset() {
   EnemyWeak.classList.remove("flyleft");
   setTimeout(() => EnemyWeak.classList.add("flyleft"), 0);
 
+  let pos = Math.floor(Math.random() * 6 + 1);
+  EnemyWeak.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
+  EnemyWeak.classList.add(`position${pos}`);
+
   // Gør enemies clickable igen, som vi gjorde i startfunktionen
   EnemyWeak.addEventListener("mousedown", fewPoints);
 }
@@ -150,6 +164,10 @@ function enemyMediumReset() {
   //reset initial animations
   EnemyMedium.classList.remove("flyright");
   setTimeout(() => EnemyMedium.classList.add("flyright"), 0);
+
+  let pos = Math.floor(Math.random() * 6 + 1);
+  EnemyMedium.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
+  EnemyMedium.classList.add(`position${pos}`);
 
   // Gør enemies clickable igen, som vi gjorde i startfunktionen
   EnemyMedium.addEventListener("mousedown", morePoints);
@@ -185,6 +203,10 @@ function planetBigReset() {
   planetHigh.classList.remove("driftright");
   setTimeout(() => planetHigh.classList.add("driftright"), 0);
 
+  let pos = Math.floor(Math.random() * 6 + 1);
+  planetHigh.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
+  planetHigh.classList.add(`position${pos}`);
+
   // Gør planets clickable igen, som vi gjorde i startfunktionen
   planetHigh.addEventListener("mouseover", planetBig);
 }
@@ -200,6 +222,10 @@ function planetSmallReset() {
   //reset initial animations
   planetLow.classList.remove("driftleft");
   setTimeout(() => planetLow.classList.add("driftleft"), 0);
+
+  let pos = Math.floor(Math.random() * 6 + 1);
+  planetLow.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
+  planetLow.classList.add(`position${pos}`);
 
   // Gør planets clickable igen, som vi gjorde i startfunktionen
   planetLow.addEventListener("mouseover", planetSmall);

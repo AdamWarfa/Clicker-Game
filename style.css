@@ -28,7 +28,6 @@ body {
 #enemy25Container {
   position: absolute;
   width: 13%;
-  top: 30%;
   right: -20vw;
   z-index: 2;
 }
@@ -42,21 +41,18 @@ body {
 #enemy100Container {
   position: absolute;
   width: 13%;
-  top: 55%;
   left: -20vw;
   z-index: 2;
 }
 #planet1Container {
   position: absolute;
   width: 20%;
-  top: 15%;
   left: -20vw;
   z-index: 3;
 }
 #planet2Container {
   position: absolute;
   width: 10%;
-  top: 45%;
   right: -20vw;
   z-index: 3;
 }
@@ -75,6 +71,24 @@ body {
 #planet2 {
   width: 100%;
 }
+.position1 {
+  top: 30%;
+}
+.position2 {
+  top: 55%;
+}
+.position3 {
+  top: 15%;
+}
+.position4 {
+  top: 45%;
+}
+.position5 {
+  top: 70%;
+}
+.position6 {
+  top: 85%;
+}
 #start {
   z-index: 4;
   width: 100%;
@@ -89,30 +103,43 @@ body {
 }
 
 #life_board {
+  background-color: #070012;
+  transform: translate(-50%, -60%);
+  border: 4px;
+  border-style: solid;
+  border-color: #21cc23;
   display: grid;
   grid-template-columns: 100% 100% 100% 100% 100%;
   z-index: 2;
   position: absolute;
-  top: 0;
-  margin-top: 4vh;
-  margin-left: 83vw;
-  width: 3%;
+  top: 3vw;
+  padding: 1vw 11vw 1vw 1vw;
+  margin-top: 4vw;
+  margin-left: 90vw;
+  width: 2.5vw;
 }
 #life_board img {
   width: 100%;
 }
 .broken-battery {
-  visibility: hidden;
+  filter: grayscale();
 }
 #score_board {
+  background-color: #070012;
+  position: absolute;
+  transform: translate(-50%, -60%);
+  border: 4px;
+  border-style: solid;
+  border-color: #21cc23;
   display: grid;
   grid-template-columns: 100% 100%;
-  z-index: 2;
+  z-index: 2;9
   position: absolute;
-  top: 0;
-  margin-top: 4vh;
-  margin-left: 3vw;
-  width: 5%;
+  top: 3vw;
+  padding: 1vw 15vw 1vw 1vw;
+  margin-top: 4vw;
+  margin-left: 13.5vw;
+  width: 6%;
 }
 #score_board img {
   width: 100%;
@@ -124,8 +151,8 @@ body {
   font-family: "Press Start 2P", cursive;
   filter: drop-shadow(2px 10px 100px #e6ff00);
   position: absolute;
-  top: -80%;
-  left: 100%;
+  top: -10%;
+  left: 40%;
 }
 .hidden {
   visibility: hidden;
