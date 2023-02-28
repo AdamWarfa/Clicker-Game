@@ -18,17 +18,16 @@ let buttonLose = document.querySelector("game_over_button");
 let buttonWin = document.querySelector("level_complete_button");
 
 //Startfunktion
-function start() {
-  startAnimations();
-  startPositions();
-  startListeners();
-}
+function start() {}
 
 function startScreen() {
   document.querySelector("#start").classList.add("hidden");
 }
 function rules() {
   document.querySelector("#rules").classList.add("hidden");
+  startAnimations();
+  startPositions();
+  startListeners();
 }
 //Giv målene animationer
 function startAnimations() {
