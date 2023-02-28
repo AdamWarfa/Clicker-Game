@@ -2,7 +2,6 @@
 window.addEventListener("load", start);
 //
 let points = 0;
-let score = points.toString();
 let lives = 5;
 //Variabeldeklaration
 let EnemyWeak = document.querySelector("#enemy25Container");
@@ -21,12 +20,16 @@ let buttonWin = document.querySelector("level_complete_button");
 //Startfunktion
 function start() {
   startAnimations();
-
   startPositions();
-
   startListeners();
 }
 
+function startScreen() {
+  document.querySelector("#start").classList.add("hidden");
+}
+function rules() {
+  document.querySelector("#rules").classList.add("hidden");
+}
 //Giv målene animationer
 function startAnimations() {
   EnemyWeak.classList.add("flyleft");
@@ -270,14 +273,6 @@ function planetSmallReset() {
 
   // Gør planets clickable igen, som vi gjorde i startfunktionen
   planetLow.addEventListener("mouseover", planetSmall);
-}
-
-function startScreen() {
-  document.querySelector("#start").classList.add("hidden");
-}
-
-function rules() {
-  document.querySelector("#rules").classList.add("hidden");
 }
 
 function gameOver() {
