@@ -147,6 +147,7 @@ function displayPoints() {
 function planetBig() {
   planetHigh.removeEventListener("mouseover", planetBig);
   document.querySelector("#planet_sound").play();
+  document.querySelector("#planet_sound").currentTime = 0;
   planetHigh.classList.add("paused");
   planetHighSprite.classList.add("zoom_out");
   planetHigh.addEventListener("animationend", planetBigReset);
@@ -157,6 +158,7 @@ function planetBig() {
 function planetSmall() {
   planetLow.removeEventListener("mouseover", planetSmall);
   document.querySelector("#planet_sound").play();
+  document.querySelector("#planet_sound").currentTime = 0;
   planetLow.classList.add("paused");
   planetLowSprite.classList.add("zoom_out");
   planetLow.addEventListener("animationend", planetSmallReset);
