@@ -33,6 +33,7 @@ function rules() {
 function startAnimations() {
   EnemyWeak.classList.add("flyleft");
   EnemyStrong.classList.add("falling");
+  EnemyStrongSprite.classList.add("close");
   EnemyMedium.classList.add("flyright");
   planetHigh.classList.add("driftright");
   planetLow.classList.add("driftleft");
@@ -40,6 +41,8 @@ function startAnimations() {
 
 //Giv målene startpositioner
 function startPositions() {
+  document.querySelector("#beat").play();
+  document.querySelector("#beat").loop = true;
   EnemyWeak.classList.add("position1");
   EnemyMedium.classList.add("position2");
   planetHigh.classList.add("position3");
@@ -62,12 +65,14 @@ function startListeners() {
   planetLow.addEventListener("animationiteration", planetSmallReset);
 
   //Game Over hvis man ikke nårat trykke på det sjældne rumskib
-  EnemyStrong.addEventListener("animationiteration", gameOver);
+  // EnemyStrong.addEventListener("animationiteration", gameOver);
 }
 
 // Når man trykker på det langsomme rumskib
 function fewPoints() {
   EnemyWeak.removeEventListener("mousedown", fewPoints);
+  document.querySelector("#enemy_sound").play();
+  document.querySelector("#enemy_sound").currentTime = 0;
   EnemyWeak.classList.add("paused");
   EnemyWeakSprite.classList.add("dead");
   EnemyWeak.addEventListener("animationend", enemyWeakReset);
@@ -78,6 +83,8 @@ function fewPoints() {
 // Når man trykker på det hurtige rumskib
 function morePoints() {
   EnemyMedium.removeEventListener("mousedown", morePoints);
+  document.querySelector("#enemy_sound").play();
+  document.querySelector("#enemy_sound").currentTime = 0;
   EnemyMedium.classList.add("paused");
   EnemyMediumSprite.classList.add("dead");
   EnemyMedium.addEventListener("animationend", enemyMediumReset);
@@ -88,6 +95,8 @@ function morePoints() {
 //Når man trykker på det sjældne rumskib
 function manyPoints() {
   EnemyStrong.removeEventListener("mousedown", manyPoints);
+  document.querySelector("#enemy_sound").play();
+  document.querySelector("#enemy_sound").currentTime = 0;
   EnemyStrong.classList.add("paused");
   EnemyStrongSprite.classList.add("dead");
   EnemyStrong.addEventListener("animationend", enemyStrongReset);
@@ -137,6 +146,7 @@ function displayPoints() {
 //Når man trykker på den store planet
 function planetBig() {
   planetHigh.removeEventListener("mouseover", planetBig);
+  document.querySelector("#planet_sound").play();
   planetHigh.classList.add("paused");
   planetHighSprite.classList.add("zoom_out");
   planetHigh.addEventListener("animationend", planetBigReset);
@@ -146,6 +156,7 @@ function planetBig() {
 //Når man trykker på den lille planet
 function planetSmall() {
   planetLow.removeEventListener("mouseover", planetSmall);
+  document.querySelector("#planet_sound").play();
   planetLow.classList.add("paused");
   planetLowSprite.classList.add("zoom_out");
   planetLow.addEventListener("animationend", planetSmallReset);
@@ -274,12 +285,26 @@ function planetSmallReset() {
   planetLow.addEventListener("mouseover", planetSmall);
 }
 
+function stopAnimations() {
+  EnemyWeak.classList.remove("flyleft");
+  EnemyStrong.classList.remove("falling");
+  EnemyMedium.classList.remove("flyright");
+  planetHigh.classList.remove("driftright");
+  planetLow.classList.remove("driftleft");
+}
+
 function gameOver() {
+  document.querySelector("#beat").pause();
+  document.querySelector("#loss_sound").play();
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#game_over_score").textContent = `Score: ${points}`;
+  stopAnimations();
 }
 
 function levelComplete() {
+  document.querySelector("#beat").pause();
+  document.querySelector("#win_sound").play();
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#level_complete_score").textContent = `Score: ${points}`;
+  stopAnimations();
 }
