@@ -37,6 +37,8 @@ function startAnimations() {
   EnemyMedium.classList.add("flyright");
   planetHigh.classList.add("driftright");
   planetLow.classList.add("driftleft");
+  document.querySelector("#time_sprite").classList.add("shrink");
+  document.querySelector("#time_sprite").addEventListener("animationend", gameOver);
 }
 
 //Giv målene startpositioner
@@ -290,9 +292,11 @@ function planetSmallReset() {
 function stopAnimations() {
   EnemyWeak.classList.remove("flyleft");
   EnemyStrong.classList.remove("falling");
+  EnemyStrong.classList.remove("close");
   EnemyMedium.classList.remove("flyright");
   planetHigh.classList.remove("driftright");
   planetLow.classList.remove("driftleft");
+  document.querySelector("#time_sprite").classList.remove("shrink");
 }
 
 function gameOver() {
