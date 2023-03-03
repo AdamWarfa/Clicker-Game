@@ -33,7 +33,7 @@ function rules() {
 function startAnimations() {
   EnemyWeak.classList.add("flyleft");
   EnemyStrong.classList.add("falling");
-  EnemyStrongSprite.classList.add("close");
+  //EnemyStrongSprite.classList.add("close");
   EnemyMedium.classList.add("flyright");
   planetHigh.classList.add("driftright");
   planetLow.classList.add("driftleft");
@@ -43,10 +43,12 @@ function startAnimations() {
 
 //Giv målene startpositioner
 function startPositions() {
+  let pos = Math.floor(Math.random() * 4) + 1;
   document.querySelector("#beat").play();
   document.querySelector("#beat").loop = true;
   EnemyWeak.classList.add("position1");
   EnemyMedium.classList.add("position2");
+  EnemyStrong.classList.add(`position-left${pos}`);
   planetHigh.classList.add("position3");
   planetLow.classList.add("position4");
 }
@@ -63,6 +65,7 @@ function startListeners() {
   //når animationer skal genstartes
   EnemyWeak.addEventListener("animationiteration", enemyWeakReset);
   EnemyMedium.addEventListener("animationiteration", enemyMediumReset);
+  EnemyStrong.addEventListener("animationiteration", enemyStrongReset);
   planetHigh.addEventListener("animationiteration", planetBigReset);
   planetLow.addEventListener("animationiteration", planetSmallReset);
 
@@ -241,12 +244,17 @@ function enemyStrongReset() {
   //reset initial animations
   EnemyStrong.classList.remove("falling");
   setTimeout(() => EnemyStrong.classList.add("falling"), 0);
-  EnemyStrongSprite.classList.remove("close");
-  setTimeout(() => EnemyStrongSprite.classList.add("close"), 0);
+  // EnemyStrongSprite.classList.remove("close");
+  // setTimeout(() => EnemyStrongSprite.classList.add("close"), 0);
+
+  let pos = Math.floor(Math.random() * 4) + 1;
+  EnemyStrong.classList.remove("position-left1", "position-left2", "position-left3", "position-left4");
+  EnemyStrong.classList.add(`position-left${pos}`);
 
   // Gør enemies clickable igen, som vi gjorde i startfunktionen
   EnemyStrong.addEventListener("mousedown", manyPoints);
 }
+
 function planetBigReset() {
   //fjern event listener for begge planeter
   planetHigh.removeEventListener("animationend", planetBigReset);
