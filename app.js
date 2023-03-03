@@ -39,6 +39,10 @@ function startAnimations() {
   planetLow.classList.add("driftleft");
   document.querySelector("#time_sprite").classList.add("shrink");
   document.querySelector("#time_sprite").addEventListener("animationend", gameOver);
+  document.querySelector("#score_board").classList.add("border-color");
+  document.querySelector("#life_board").classList.add("border-color");
+  document.querySelector("#time_container").classList.add("border-color");
+  document.querySelector("#point-counter").classList.add("text-color");
 }
 
 //Giv målene startpositioner
