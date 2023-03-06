@@ -10,15 +10,17 @@ let EnemyStrong = document.querySelector("#enemy50Container");
 let EnemyWeakSprite = document.querySelector("#enemy25");
 let EnemyMediumSprite = document.querySelector("#enemy100");
 let EnemyStrongSprite = document.querySelector("#enemy50");
-let planetHigh = document.querySelector("#planet1Container");
-let planetLow = document.querySelector("#planet2Container");
-let planetHighSprite = document.querySelector("#planet1");
-let planetLowSprite = document.querySelector("#planet2");
+let planetBig = document.querySelector("#planet1Container");
+let planetSmall = document.querySelector("#planet2Container");
+let planetBigSprite = document.querySelector("#planet1");
+let planetSmallSprite = document.querySelector("#planet2");
 let buttonLose = document.querySelector("game_over_button");
 let buttonWin = document.querySelector("level_complete_button");
 
 //Startfunktion
-function start() {}
+function start() {
+  document.querySelector("#start_button").addEventListener("click", startScreen);
+}
 
 function startScreen() {
   document.querySelector("#start").classList.add("hidden");
@@ -35,8 +37,8 @@ function startAnimations() {
   EnemyStrong.classList.add("falling");
   //EnemyStrongSprite.classList.add("close");
   EnemyMedium.classList.add("flyright");
-  planetHigh.classList.add("driftright");
-  planetLow.classList.add("driftleft");
+  planetBig.classList.add("driftright");
+  planetSmall.classList.add("driftleft");
   document.querySelector("#time_sprite").classList.add("shrink");
   document.querySelector("#time_sprite").addEventListener("animationend", gameOver);
   document.querySelector("#score_board").classList.add("border-color");
@@ -53,8 +55,8 @@ function startPositions() {
   EnemyWeak.classList.add("position1");
   EnemyMedium.classList.add("position2");
   EnemyStrong.classList.add(`position-left${pos}`);
-  planetHigh.classList.add("position3");
-  planetLow.classList.add("position4");
+  planetBig.classList.add("position3");
+  planetSmall.classList.add("position4");
 }
 
 //eventListeners
@@ -63,15 +65,15 @@ function startListeners() {
   EnemyWeak.addEventListener("mousedown", fewPoints);
   EnemyMedium.addEventListener("mousedown", morePoints);
   EnemyStrong.addEventListener("mousedown", manyPoints);
-  planetHigh.addEventListener("mouseover", planetBig);
-  planetLow.addEventListener("mouseover", planetSmall);
+  planetBig.addEventListener("mouseover", planetBigClick);
+  planetSmall.addEventListener("mouseover", planetSmallClick);
 
   //når animationer skal genstartes
   EnemyWeak.addEventListener("animationiteration", enemyWeakReset);
   EnemyMedium.addEventListener("animationiteration", enemyMediumReset);
   EnemyStrong.addEventListener("animationiteration", enemyStrongReset);
-  planetHigh.addEventListener("animationiteration", planetBigReset);
-  planetLow.addEventListener("animationiteration", planetSmallReset);
+  planetBig.addEventListener("animationiteration", planetBigReset);
+  planetSmall.addEventListener("animationiteration", planetSmallReset);
 
   //Game Over hvis man ikke nårat trykke på det sjældne rumskib
   // EnemyStrong.addEventListener("animationiteration", gameOver);
@@ -153,24 +155,24 @@ function displayPoints() {
 }
 
 //Når man trykker på den store planet
-function planetBig() {
-  planetHigh.removeEventListener("mouseover", planetBig);
+function planetBigClick() {
+  planetBig.removeEventListener("mouseover", planetBigClick);
   document.querySelector("#planet_sound").play();
   document.querySelector("#planet_sound").currentTime = 0;
-  planetHigh.classList.add("paused");
-  planetHighSprite.classList.add("zoom_out");
-  planetHigh.addEventListener("animationend", planetBigReset);
+  planetBig.classList.add("paused");
+  planetBigSprite.classList.add("zoom_out");
+  planetBig.addEventListener("animationend", planetBigReset);
   decrementLives();
 }
 
 //Når man trykker på den lille planet
-function planetSmall() {
-  planetLow.removeEventListener("mouseover", planetSmall);
+function planetSmallClick() {
+  planetSmall.removeEventListener("mouseover", planetSmallClick);
   document.querySelector("#planet_sound").play();
   document.querySelector("#planet_sound").currentTime = 0;
-  planetLow.classList.add("paused");
-  planetLowSprite.classList.add("zoom_out");
-  planetLow.addEventListener("animationend", planetSmallReset);
+  planetSmall.classList.add("paused");
+  planetSmallSprite.classList.add("zoom_out");
+  planetSmall.addEventListener("animationend", planetSmallReset);
   decrementLives();
 }
 
@@ -261,44 +263,44 @@ function enemyStrongReset() {
 
 function planetBigReset() {
   //fjern event listener for begge planeter
-  planetHigh.removeEventListener("animationend", planetBigReset);
+  planetBig.removeEventListener("animationend", planetBigReset);
 
   // fjern dødsanimationerne
-  planetHigh.classList.remove("paused");
-  planetHighSprite.classList.remove("zoom_out");
+  planetBig.classList.remove("paused");
+  planetBigSprite.classList.remove("zoom_out");
 
   //reset initial animations
-  planetHigh.classList.remove("driftright");
-  setTimeout(() => planetHigh.classList.add("driftright"), 0);
+  planetBig.classList.remove("driftright");
+  setTimeout(() => planetBig.classList.add("driftright"), 0);
 
   //Randomize top positioner
   let pos = Math.floor(Math.random() * 6 + 1);
-  planetHigh.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
-  planetHigh.classList.add(`position${pos}`);
+  planetBig.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
+  planetBig.classList.add(`position${pos}`);
 
   // Gør planets clickable igen, som vi gjorde i startfunktionen
-  planetHigh.addEventListener("mouseover", planetBig);
+  planetBig.addEventListener("mouseover", planetBig);
 }
 
 function planetSmallReset() {
   //fjern event listener for begge planeter
-  planetLow.removeEventListener("animationend", planetSmallReset);
+  planetSmall.removeEventListener("animationend", planetSmallReset);
 
   // fjern dødsanimationerne
-  planetLow.classList.remove("paused");
-  planetLowSprite.classList.remove("zoom_out");
+  planetSmall.classList.remove("paused");
+  planetSmallSprite.classList.remove("zoom_out");
 
   //reset initial animations
-  planetLow.classList.remove("driftleft");
-  setTimeout(() => planetLow.classList.add("driftleft"), 0);
+  planetSmall.classList.remove("driftleft");
+  setTimeout(() => planetSmall.classList.add("driftleft"), 0);
 
   //Randomize top positioner
   let pos = Math.floor(Math.random() * 6 + 1);
-  planetLow.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
-  planetLow.classList.add(`position${pos}`);
+  planetSmall.classList.remove("position1", "position2", "position3", "position4", "position5", "position6");
+  planetSmall.classList.add(`position${pos}`);
 
   // Gør planets clickable igen, som vi gjorde i startfunktionen
-  planetLow.addEventListener("mouseover", planetSmall);
+  planetSmall.addEventListener("mouseover", planetSmall);
 }
 
 function stopAnimations() {
@@ -306,8 +308,8 @@ function stopAnimations() {
   EnemyStrong.classList.remove("falling");
   EnemyStrong.classList.remove("close");
   EnemyMedium.classList.remove("flyright");
-  planetHigh.classList.remove("driftright");
-  planetLow.classList.remove("driftleft");
+  planetBig.classList.remove("driftright");
+  planetSmall.classList.remove("driftleft");
   document.querySelector("#time_sprite").classList.remove("shrink");
 }
 
