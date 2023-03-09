@@ -4,18 +4,18 @@ window.addEventListener("load", start);
 let points = 0;
 let lives = 5;
 //Variabeldeklaration
-let EnemyWeak = document.querySelector("#enemy25Container");
-let EnemyMedium = document.querySelector("#enemy100Container");
-let EnemyStrong = document.querySelector("#enemy50Container");
-let EnemyWeakSprite = document.querySelector("#enemy25");
-let EnemyMediumSprite = document.querySelector("#enemy100");
-let EnemyStrongSprite = document.querySelector("#enemy50");
-let planetBig = document.querySelector("#planet1Container");
-let planetSmall = document.querySelector("#planet2Container");
-let planetBigSprite = document.querySelector("#planet1");
-let planetSmallSprite = document.querySelector("#planet2");
-let buttonLose = document.querySelector("game_over_button");
-let buttonWin = document.querySelector("level_complete_button");
+const EnemyWeak = document.querySelector("#enemy25Container");
+const EnemyMedium = document.querySelector("#enemy100Container");
+const EnemyStrong = document.querySelector("#enemy50Container");
+const EnemyWeakSprite = document.querySelector("#enemy25");
+const EnemyMediumSprite = document.querySelector("#enemy100");
+const EnemyStrongSprite = document.querySelector("#enemy50");
+const planetBig = document.querySelector("#planet1Container");
+const planetSmall = document.querySelector("#planet2Container");
+const planetBigSprite = document.querySelector("#planet1");
+const planetSmallSprite = document.querySelector("#planet2");
+const buttonLose = document.querySelector("game_over_button");
+const buttonWin = document.querySelector("level_complete_button");
 
 //Startfunktion
 function start() {
