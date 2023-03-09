@@ -279,7 +279,7 @@ function planetBigReset() {
   planetBig.classList.add(`position${pos}`);
 
   // Gør planets clickable igen, som vi gjorde i startfunktionen
-  planetBig.addEventListener("mouseover", planetBig);
+  planetBig.addEventListener("mouseover", planetBigClick);
 }
 
 function planetSmallReset() {
@@ -300,7 +300,7 @@ function planetSmallReset() {
   planetSmall.classList.add(`position${pos}`);
 
   // Gør planets clickable igen, som vi gjorde i startfunktionen
-  planetSmall.addEventListener("mouseover", planetSmall);
+  planetSmall.addEventListener("mouseover", planetSmallClick);
 }
 
 function stopAnimations() {
